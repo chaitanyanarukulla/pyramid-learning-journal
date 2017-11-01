@@ -11,15 +11,15 @@ def list_view(request):
 
 
 def detail_view(request):
-    with open(os.path.join(TEMPLATE, 'about.html')) as file:
+    with open(os.path.join(TEMPLATE, 'read.html')) as file:
         return Response(file.read())
 
 
 def create_view(request):
-    with open(os.path.join(TEMPLATE, 'contact.html')) as file:
+    with open(os.path.join(TEMPLATE, 'create.html')) as file:
         return Response(file.read())
 
 
 def update_view(request):
-    with open(os.path.join(TEMPLATE, 'post.html')) as file:
+    with open(os.path.join(TEMPLATE, 'edit.html')) as file:
         return Response(file.read())
