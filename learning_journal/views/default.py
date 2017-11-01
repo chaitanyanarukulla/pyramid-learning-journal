@@ -2,7 +2,7 @@ from pyramid.response import Response
 import os
 
 HERE = os.path.abspath(__file__)
-TEMPLATE = os.path.join(os.path.dirname(os.path.dirname(HERE)), 'template')
+TEMPLATE = os.path.join(os.path.dirname(os.path.dirname(HERE)), 'templates')
 
 
 def list_view(request):
