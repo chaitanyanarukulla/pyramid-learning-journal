@@ -1,4 +1,3 @@
-
 """Routes with names and uris associated."""
 
 
