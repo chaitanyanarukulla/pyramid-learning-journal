@@ -1,5 +1,7 @@
 # pyramid-learning-journal
 
+https://shrieking-skull-73949.herokuapp.com/
+
 Authors:
 
 Chaitanya.Narukulla (chaitanya.narukulla@gmail.com)
@@ -25,7 +27,7 @@ Set Up and Installation:
 
 Clone this repository to your local machine.
 
-Once downloaded, cd into the expense_tracker directory.
+Once downloaded, cd into the learning_journal directory.
 
 Begin a new virtual environment with Python 3 and activate it.
 
