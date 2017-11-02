@@ -7,7 +7,8 @@ TEMPLATE = os.path.join(os.path.dirname(os.path.dirname(HERE)), 'templates')
 
 @view_config(route_name='home', renderer='templates/index.jinja2')
 def list_view(request):
-    return {}
+    return {
+    }
 
 
 @view_config(route_name='post', renderer='templates/read.jinja2')
