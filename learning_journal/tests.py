@@ -34,19 +34,19 @@ def testapp():
     return TestApp(app)
 
 
-# def test_detail_route_has_title(testapp):
-#     """Test detail has a title in the response."""
-#     response = testapp.get('/journal/13')
-#     assert 'title' in response
+def test_detail_route_has_title(testapp):
+    """Test detail has a title in the response."""
+    response = testapp.get('/journal/13')
+    assert 'title' in response
 
 
-# def test_entry_13_body_has_entry_text(testapp):
-#     """Test detail page has specific text in body."""
-#     response = testapp.get('/journal/13')
-#     assert b'provided documentation' in response.body
+def test_entry_13_body_has_entry_text(testapp):
+    """Test detail page has specific text in body."""
+    response = testapp.get('/journal/13')
+    assert b'I learned more about Binary Heap' in response.body
 
 
-# def test_entry_1_body_has_entry_text(testapp):
-#     """Test detail page has specific text in body."""
-#     response = testapp.get('/journal/1')
-#     assert b'extra packages' in response.body
+def test_entry_1_body_has_entry_text(testapp):
+    """Test detail page has specific text in body."""
+    response = testapp.get('/journal/1')
+    assert b'with virtual environment' in response.body
