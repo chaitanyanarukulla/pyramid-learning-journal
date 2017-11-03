@@ -3,6 +3,8 @@ from pyramid.view import view_config
 from pyramid.httpexceptions import HTTPNotFound
 from learning_journal.Data.entry import ENTRIES
 
+import os
+
 
 HERE = os.path.dirname(__file__)
 
@@ -12,7 +14,7 @@ HERE = os.path.dirname(__file__)
 def list_view(request):
     """This_ serves home page."""
     return {
-        "entries": ENTRIES,
+        "entry": ENTRIES,
         "title": "Chai\'s Blog",
     }
 
@@ -52,4 +54,3 @@ def update_view(request):
 
             }
     raise HTTPNotFound()
-
