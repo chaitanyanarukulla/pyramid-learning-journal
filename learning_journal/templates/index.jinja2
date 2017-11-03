@@ -1,65 +1,40 @@
-{% extends 'layout.jinja2' %}
-{% block body %}
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-      <div class="post-preview">
-        <a href="post.html">
-          <h2 class="post-title">
-          </h2>
-          <h3 class="post-subtitle">
+{% extends "layout.jinja2" %}
+{% block content %}
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('../static/seattle.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Daily blogs by Chaitanya</h1>
+              <span class="subheading"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
 
-          </h3>
-        </a>
-        <p class="post-meta">Posted by
-          <a href="#">Chaitanya.Narukulla</a>
-          on Oct 20, 2017</p>
-      </div>
-      <hr>
-      <div class="post-preview">
-        <a href="post.html">
-          <h2 class="post-title">
-            Day 1.
-          </h2>
-        </a>
-        <p class="post-meta">Posted by
-          <a href="#">Chaitanya.Narukulla</a>
-          on Oct 29, 2017</p>
-      </div>
-      <hr>
-      <div class="post-preview">
-        <a href="post.html">
-          <h2 class="post-title">
-            Day2
-          </h2>
-          <h3 class="post-subtitle">
-          </h3>
-        </a>
-        <p class="post-meta">Posted by
-          <a href="#">Chaitanya.Narukulla</a>
-          on Oct 29, 2017</p>
-      </div>
-      <hr>
-      <div class="post-preview">
-        <a href="post.html">
-          <h2 class="post-title">
-            Day -3
-          </h2>
-          <h3 class="post-subtitle">
+    <!-- Main Content -->
 
-          </h3>
-        </a>
-        <p class="post-meta">Posted by
-          <a href="#">Chaitanya.Narukulla</a>
-          on Oct 29, 2017</p>
+          <!-- Pager -->
+          <div class="clearfix">
+            <a class="btn btn-secondary float-right" href="/journal/new-entry">New Entry &rarr;</a>
+          </div>
+
+    <main class="article-list">
+      <div class="page-header">
+        <h1>Blog Posts</h1>
       </div>
-      <hr>
-      <!-- Pager -->
-      <div class="clearfix">
-        <a class="btn btn-secondary float-right" href="#">Older Posts &rarr;</a>
-      </div>
-    </div>
-  </div>
-</div>
+      {% for entry in entries %}
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">{{ entry.title|upper }}</h4>
+            <p class="card-text">{{ entry.body }}</p>
+            <a href="{{ request.route_url('detail', id=entry.id) }}" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      {% endfor %}
+    </main>
 {% endblock %}
+
 
