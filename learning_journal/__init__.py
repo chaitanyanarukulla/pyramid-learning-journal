@@ -1,4 +1,5 @@
-"""Configure WSGI application."""
+"""Setting up Configurator."""
+
 from pyramid.config import Configurator
 
 

@@ -3,8 +3,6 @@ from pyramid.view import view_config
 from pyramid.httpexceptions import HTTPNotFound
 from learning_journal.Data.entry import ENTRIES
 
-import os
-
 
 HERE = os.path.dirname(__file__)
 
@@ -54,3 +52,4 @@ def update_view(request):
 
             }
     raise HTTPNotFound()
+
