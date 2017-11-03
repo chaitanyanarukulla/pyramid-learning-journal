@@ -1,4 +1,5 @@
-Entries = [{'id':'1', 'title':'DAY 1', 'creation_data':'Monday, 16 October, 2017, 9:00 pm','body':'Today I learned how to use Sublime Text 3 and its packages, just got my feet wet with virtual environment and while doing my assignment I learned different types of errors I could see in python,'},
+
+ENTRIES = [{'id':'1', 'title':'DAY 1', 'creation_data':'Monday, 16 October, 2017, 9:00 pm','body':'Today I learned how to use Sublime Text 3 and its packages, just got my feet wet with virtual environment and while doing my assignment I learned different types of errors I could see in python,'},
            {'id':'2', 'title':'DAY 2', 'creation_data':'Wednesday, 18 October, 2017, 7:04 pm','body':'Today I learned Marco Zangari is awesome partner to pair programmer'},
            {'id':'3', 'title':'DAY 3', 'creation_data':'Thursday, 19 October, 2017, 10:30 pm','body':'Today I learned about Python Dictionaries and its methods, like how to map two lists in dictionaries using zip method, and also learned about sets and its methods'},
            {'id':'4', 'title':'DAY 4', 'creation_data':'NONE','body':'NONE'},
@@ -11,3 +12,4 @@ Entries = [{'id':'1', 'title':'DAY 1', 'creation_data':'Monday, 16 October, 2017
            {'id':'11', 'title':'DAY 11', 'creation_data':' Monday, 30 October, 2017, 5:23 pm','body':'Today I learned about Pyramid framework and how MVC fits in it with cookie-cutter and for data structures we learned how to implement Deque'},
            {'id':'12', 'title':'DAY 12', 'creation_data':'Tuesday, 31 October, 2017, 11:52 pm','body':'Today I learned about the binary heap, wish I could have spent more time but I and my partner had to split to work on deploying the Blog assignment which was no fun because Heroku was a pain in the butt.'},
            {'id':'13', 'title':'DAY 13', 'creation_data':'Wednesday, 1 November, 2017, 7:03 pm','body':'Today I learned more about Binary Heap ( right way to find child node in relationship with parent node) also learned how to use jinja2 templates with Pyramid Renderers'}]
+

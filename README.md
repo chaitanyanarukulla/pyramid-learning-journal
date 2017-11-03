@@ -17,10 +17,10 @@ The fourth will   be an HTML form page you will use to edit an existing entry. T
 
 Routes:
 
-/ - the home page and a listing of all Blogs
-/new-entry - to create a new Blog
-/post/{id:\d+} - check old post of Blogs
-/edit-entry/{id:\d+}/edit - for editing Old Blog post
+"/"- the home page and a listing of all Blogs
+"/new-entry" - to create a new Blog
+"/post/{id:\d+}" - check old post of Blogs
+"/edit-entry/{id:\d+}/edit" - for editing Old Blog post
 
 
 Set Up and Installation:
@@ -42,4 +42,6 @@ $ pserve development.ini --reload to serve the application on http://localhost:6
 To Test
 
 If you have the testing extras installed, testing is simple. If you're in the same directory as setup.py type the following:
-$ py.test expense_tracker
+
+$ py.test learning_journal
+
