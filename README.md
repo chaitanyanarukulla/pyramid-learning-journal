@@ -45,6 +45,7 @@ If you have the testing extras installed, testing is simple. If you're in the sa
 
 $ py.test learning_journal
 
+<<<<<<< HEAD
 Resources used:
 
 This project was modeled using this repos and some of the code from this resourse has been used :
@@ -52,8 +53,18 @@ This project was modeled using this repos and some of the code from this resours
 youtube:https://www.youtube.com/playlist?list=PLVngfM2hsbi-Uo2jDso-K06VScDC1ucMy
 
 
+=======
+his project was modeled using these repos and some of the code was used from this resources :
+
+youtube:https://www.youtube.com/playlist?list=PLVngfM2hsbi-Uo2jDso-K06VScDC1ucMy
+
+>>>>>>> c91d94651dd512a3b4f3d49f3e68cbb682ac03c1
 https://github.com/markreynoso/pyramid-learning-journal
 
 https://github.com/codefellows/expense_tracker_401d7
 
 https://github.com/ztaylor2/pyramid-learning-journal
+<<<<<<< HEAD
+=======
+
+>>>>>>> c91d94651dd512a3b4f3d49f3e68cbb682ac03c1
