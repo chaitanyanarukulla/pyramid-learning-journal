@@ -19,12 +19,14 @@ requires = [
     'transaction',
     'zope.sqlalchemy',
     'waitress',
+    'psycopg2'
 ]
 
 tests_require = [
     'WebTest >= 1.3.1',  # py3 compat
     'pytest',
     'pytest-cov',
+    'faker'
 ]
 
 setup(
@@ -54,7 +56,7 @@ setup(
             'main = learning_journal:main',
         ],
         'console_scripts': [
-            'initialize_learning_journal_db = learning_journal.scripts.initializedb:main',
+            'initdb = learning_journal.scripts.initializedb:main',
         ],
     },
 )
