@@ -4,6 +4,13 @@ from pyramid.httpexceptions import HTTPNotFound
 import pytest
 
 
+from learning_journal.views.default import (
+    list_view,
+    detail_view,
+    create_view,
+)
+
+
 @pytest.fixture
 def dummy_request():
     """Set up a dummy request for testing."""
@@ -86,3 +93,4 @@ def test_all_entries_in_data_in_request(dummy_request):
     req = dummy_request
     response = list_view(req)
     assert response['entry'] == ENTRIES
+
