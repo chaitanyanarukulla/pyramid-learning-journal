@@ -16,6 +16,10 @@ def dummy_request():
     """Set up a dummy request for testing."""
     return DummyRequest()
 
+"""some of the test code was used from this repos
+https://github.com/codefellows/expense_tracker_401d7
+
+https://github.com/markreynoso/pyramid-learning-journal"""
 
 def test_list_view_returns_list_of_entries_in_dict(dummy_request):
     """Test if entries dict is in list view."""
@@ -48,24 +52,24 @@ def testapp():
     return TestApp(app)
 
 
-def test_detail_route_has_title(testapp):
+def test_the_detail_route_has_title(testapp):
     """Test detail has a title in the response."""
-    response = testapp.get('/journal/13')
+    response = testapp.get('/journal/1')
     assert 'title' in response
 
 
-def test_entry_13_body_has_entry_text(testapp):
-    """Test detail page has specific text in body."""
-    response = testapp.get('/journal/13')
-    assert b'I learned more about Binary Heap' in response.body
-
-
-def test_entry_1_body_has_entry_text(testapp):
+def test_the_entry_1_body_has_entry_text(testapp):
     """Test detail page has specific text in body."""
     response = testapp.get('/journal/1')
     assert b'with virtual environment' in response.body
-    
-    
+
+
+def test_the_entry_2_body_has_entry_text(testapp):
+    """Test detail page has specific text in body."""
+    response = testapp.get('/journal/2')
+    assert b'Python Dictionaries and its methods' in response.body
+
+
 def test_detail_view_test_status_code_200():
     """Testing status code 200 for detail view."""
     from .views import detail_view
@@ -97,7 +101,7 @@ def test_list_view_response_text_has_proper_content_type(dummy_request):
 
 
 def test_detail_view_response_text_has_proper_content_type(dummy_request):
-    """Test that list view returns expected content."""
+    """Test that list view returns expected content type."""
     response = detail_view(dummy_request)
     assert response.content_type == 'text/html'
 
