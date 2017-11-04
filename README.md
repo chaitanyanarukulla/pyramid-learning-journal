@@ -45,7 +45,9 @@ If you have the testing extras installed, testing is simple. If you're in the sa
 
 $ py.test learning_journal
 
-his project was modeled using these repos and some of the code was used from this resources :
+Resources used:
+
+This project was modeled using this repos  and some of the code was used from this resources :
 
 youtube:https://www.youtube.com/playlist?list=PLVngfM2hsbi-Uo2jDso-K06VScDC1ucMy
 
