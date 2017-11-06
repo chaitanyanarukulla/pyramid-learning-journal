@@ -4,4 +4,4 @@ python setup.py develop
 initdb production.ini
 python runapp.py
 
-chmod  777 run
+
