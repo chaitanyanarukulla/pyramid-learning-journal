@@ -28,9 +28,10 @@
       {% for entry in entry %}
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">{{ entry.title|upper }}</h4>
+            <h4 class="card-title">{{ entry.title|upper }}</h4><h5>{{ entry.creation_date }}</h5>
+
             <p class="card-text">{{ entry.body }}</p>
-            <a href="{{ request.route_url('detail', id=entry.id) }}" class="btn btn-primary">Details</a>
+            <a href="{{ request.route_url('detail', id=entry.id) }}" class="btn btn--secondary">Details</a>
           </div>
         </div>
       {% endfor %}
