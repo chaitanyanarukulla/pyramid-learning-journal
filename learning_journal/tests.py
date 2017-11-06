@@ -98,3 +98,4 @@ def test_detail_view_non_existent_entry(dummy_request):
     dummy_request.matchdict['id'] = 2
     with pytest.raises(HTTPNotFound):
         detail_view(dummy_request)
+
