@@ -18,8 +18,11 @@ The fourth will   be an HTML form page you will use to edit an existing entry. T
 Routes:
 
 "/"- the home page and a listing of all Blogs
+
 "/new-entry" - to create a new Blog
+
 "/post/{id:\d+}" - check old post of Blogs
+
 "/edit-entry/{id:\d+}/edit" - for editing Old Blog post
 
 
@@ -45,10 +48,12 @@ If you have the testing extras installed, testing is simple. If you're in the sa
 
 $ py.test learning_journal
 
+
+This project was modeled using these repos and some of the code was used from this resources :
+
 Resources used:
 
 This project was modeled using this repos and some of the code was used from this resources :
-
 
 
 youtube:https://www.youtube.com/playlist?list=PLVngfM2hsbi-Uo2jDso-K06VScDC1ucMy
