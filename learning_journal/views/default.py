@@ -1,6 +1,6 @@
 """View functions to serve all the routes."""
 from pyramid.view import view_config
-from pyramid.httpexceptions import HTTPNotFound
+from pyramid.httpexceptions import HTTPNotFound, HTTPFound, HTTPBadRequest
 from learning_journal.models.mymodel import Entry
 
 
@@ -8,7 +8,7 @@ from learning_journal.models.mymodel import Entry
              renderer='learning_journal:templates/index.jinja2')
 def list_view(request):
     """This_ serves home page."""
-    entries = request.dbsession.query(Entry).all()
+    entries = request.dbsession.query(Entry).order_by(Entry.creation_date.desc()).all()
     entries = [entry.to_dict() for entry in entries]
     return {
         "entry": entries,
@@ -30,20 +30,32 @@ def detail_view(request):
 @view_config(route_name='create',
              renderer='learning_journal:templates/create.jinja2')
 def create_view(request):
-    """This_ serves create blog page."""
-    return {"title": "Chai\'s Blog - New Post"}
+    """Receive request and serves create page."""
+    if request.method == "POST":
+        if not all([field in request.POST for field in ['title', 'body']]):
+            raise HTTPBadRequest
+        new_blog = Entry(
+            title=request.POST['title'],
+            body=request.POST['body']
+        )
+        request.dbsession.add(new_blog)
+        return HTTPFound(request.route_url('home'))
+    return {}
 
 
 @view_config(route_name='update',
-             renderer='learning_journal:/templates/update.jinja2')
+             renderer='learning_journal:templates/edit.jinja2')
 def update_view(request):
-    """This_ serves update view."""
+    """Receive request and serves edit page."""
     the_id = int(request.matchdict['id'])
-    for entry in Entry:
-        if entry['id'] == the_id:
-            return {
-                "entry": entry,
-                "title": "Chai\'s Blog - Update Post",
-
-            }
-    raise HTTPNotFound()
+    journal = request.dbsession.query(Entry).get(the_id)
+    if journal:
+        if request.method == 'POST' and request.POST:
+            journal.title = request.POST['title'],
+            journal.body = request.POST['body']
+            request.dbsession.flush()
+            return HTTPFound(request.route_url('detail', id=journal.id))
+        return {
+            'Entry': journal.to_dict()
+        }
+    raise HTTPNotFound
