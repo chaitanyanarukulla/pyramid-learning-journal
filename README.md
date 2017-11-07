@@ -44,7 +44,7 @@ To Test
 If you have the testing extras installed, testing is simple. If you're in the same directory as setup.py type the following:
 
 $ py.test learning_journal
-
+```
 Test coverage for step 2
 ---------- coverage: platform darwin, python 3.6.3-final-0 -------
 Name                                 Stmts   Miss  Cover   Missing
@@ -56,7 +56,7 @@ learning_journal/views/default.py       22      1    95%   34
 learning_journal/views/notfound.py       4      2    50%   8-9
 ------------------------------------------------------------------
 TOTAL                                   33      3    91%
-
+```
 Resources used:
 
 This project was modeled using this repos and some of the code was used from this resources :
