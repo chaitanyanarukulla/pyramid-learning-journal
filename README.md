@@ -48,7 +48,7 @@ If you have the testing extras installed, testing is simple. If you're in the sa
 
 $ py.test learning_journal
 
-Step 3 TEST:COVERAGE
+```Step 3 TEST:COVERAGE
 Name                                  Stmts   Miss  Cover   Missing
 -------------------------------------------------------------------
 learning_journal/Data/__init__.py         0      0   100%
@@ -61,7 +61,7 @@ learning_journal/views/default.py        21      6    71%   34, 41-49
 learning_journal/views/notfound.py        4      2    50%   8-9
 -------------------------------------------------------------------
 TOTAL                                    72     11    85%
-
+```
 This project was modeled using these repos and some of the code was used from this resources :
 
 
