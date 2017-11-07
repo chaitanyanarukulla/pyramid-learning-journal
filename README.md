@@ -45,6 +45,25 @@ If you have the testing extras installed, testing is simple. If you're in the sa
 
 $ py.test learning_journal
 
+Test coverage for Step-3
+---------- coverage: platform darwin, python 3.6.3-final-0 -----------
+Name                                  Stmts   Miss  Cover   Missing
+-------------------------------------------------------------------
+learning_journal/Data/__init__.py         0      0   100%
+learning_journal/Data/entry.py            1      0   100%
+learning_journal/models/__init__.py      24      3    88%   46-49
+learning_journal/models/meta.py           5      0   100%
+learning_journal/models/mymodel.py       11      0   100%
+learning_journal/routes.py                6      0   100%
+learning_journal/views/default.py        21      6    71%   34, 41-49
+learning_journal/views/notfound.py        4      2    50%   8-9
+-------------------------------------------------------------------
+TOTAL                                    72     11    85%
+
+
+
+
+
 Resources used:
 
 This project was modeled using this repos  and some of the code was used from this resources :
