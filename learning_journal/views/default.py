@@ -2,6 +2,8 @@
 from pyramid.view import view_config
 from pyramid.httpexceptions import HTTPNotFound, HTTPFound, HTTPBadRequest
 from learning_journal.models.mymodel import Entry
+from learning_journal.security import check_credentials
+from pyramid.security import remember, forget
 
 
 @view_config(route_name='home',
@@ -27,7 +29,7 @@ def detail_view(request):
     raise HTTPNotFound
 
 
-@view_config(route_name='create',
+@view_config(route_name='create', permission='add',
              renderer='learning_journal:templates/create.jinja2')
 def create_view(request):
     """Receive request and serves create page."""
@@ -43,7 +45,7 @@ def create_view(request):
     return {}
 
 
-@view_config(route_name='update',
+@view_config(route_name='update', permission='add',
              renderer='learning_journal:templates/edit.jinja2')
 def update_view(request):
     """Receive request and serves edit page."""
@@ -59,3 +61,26 @@ def update_view(request):
             'Entry': journal.to_dict()
         }
     raise HTTPNotFound
+
+
+@view_config(route_name="login",
+             renderer="../templates/login.jinja2",
+             require_csrf=False)
+def login_view(request):
+    if request.POST:
+        username = request.POST["username"]
+        password = request.POST["password"]
+        if check_credentials(username, password):
+            auth_head = remember(request, username)
+            return HTTPFound(
+                request.route_url("list"),
+                headers=auth_head
+            )
+
+    return {}
+
+
+@view_config(route_name="logout")
+def logout_view(request):
+    auth_head = forget(request)
+    return HTTPFound(request.route_url("list"), headers=auth_head)

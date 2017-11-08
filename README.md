@@ -1,21 +1,15 @@
 # pyramid-learning-journal
 
-https://shrieking-skull-73949.herokuapp.com/
 
-Authors:
-
+**Authors:**
 Chaitanya.Narukulla (chaitanya.narukulla@gmail.com)
 
+**Deployed Site**https://shrieking-skull-73949.herokuapp.com/
 
-Building web-page to post my blogs Using  Pyramid FrameWork,
-cookiecutter-pypackage and Clean-blog Boot Strap
+Building web-page to post my blogs using the [Pyramid FrameWork](https://trypyramid.com/),
+[cookiecutter-pypackage](https://cookiecutter.readthedocs.io/en/latest/readme.html) and the [Clean-blog Boot Strap](https://startbootstrap.com/template-overviews/clean-blog/)
 
-home page that shows a list of journal entries with just the title and date created.
-The second page will be a detail page that shows a single entry. The title, text and created date should be displayed on this page.
-The third page will  be an HTML form page will will use to create a new entry. The title and text of the entry should be inputs in this form, empty at first.
-The fourth will   be an HTML form page you will use to edit an existing entry. The title and text of the entry will be inputs in this form
-
-Routes:
+## Routes:
 
 "/"- the home page and a listing of all Blogs
 
@@ -26,17 +20,26 @@ Routes:
 "/edit-entry/{id:\d+}/edit" - for editing Old Blog post
 
 
-Set Up and Installation:
 
-Clone this repository to your local machine.
+home page that shows a list of journal entries with just the title and date created.
+The second page will be a detail page that shows a single entry. The title, text and created date should be displayed on this page.
+The third page will  be an HTML form page will will use to create a new entry. The title and text of the entry should be inputs in this form, empty at first.
+The fourth will   be an HTML form page you will use to edit an existing entry. The title and text of the entry will be inputs in this form
+
+
+
+
+## Set Up and Installation:
+
+- Clone this repository to your local machine.
+
+```https://github.com/chaitanyanarukulla/pyramid-learning-journal```
 
 Once downloaded, cd into the learning_journal directory.
 
 Begin a new virtual environment with Python 3 and activate it.
 
-cd into the next expense_tracker directory. It should be at the same level of setup.py
-
-pip install this package as well as the testing set of extras into your virtual environment.
+pip install setup.py  this package as well as the testing set of extras into your virtual environment.
 
 $ initialize_db development.ini to initialize the database, populating with random models.
 
