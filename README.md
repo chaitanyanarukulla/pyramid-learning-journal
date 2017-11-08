@@ -45,6 +45,8 @@ If you have the testing extras installed, testing is simple. If you're in the sa
 
 $ py.test learning_journal
 
+```
+
 Test coverage for step 2
 ---------- coverage: platform darwin, python 3.6.3-final-0 -------
 Name                                 Stmts   Miss  Cover   Missing
@@ -56,6 +58,7 @@ learning_journal/views/default.py       22      1    95%   34
 learning_journal/views/notfound.py       4      2    50%   8-9
 ------------------------------------------------------------------
 TOTAL                                   33      3    91%
+```
 
 Resources used:
 
@@ -67,5 +70,5 @@ https://github.com/markreynoso/pyramid-learning-journal
 
 https://github.com/codefellows/expense_tracker_401d7
 
-https://github.com/ztaylor2/pyramid-learning-journal
+https://github.com/ztaylor2/pyramid-learning-journalion on http://localhost:6543
 

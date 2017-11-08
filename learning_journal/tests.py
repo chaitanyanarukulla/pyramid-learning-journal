@@ -86,3 +86,5 @@ def test_all_entries_in_data_in_request(dummy_request):
     req = dummy_request
     response = list_view(req)
     assert response['entry'] == ENTRIES
+=======
+
