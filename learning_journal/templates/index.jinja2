@@ -26,15 +26,17 @@
 
       </div>
       {% for entry in entry %}
-        <div class="card">
+      <hr>
+        <div class="clearfix">
           <div class="card-body">
-            <h4 class="card-title">{{ entry.title|upper }}</h4><h5>{{ entry.creation_date }}</h5>
+            <h4 class="card-title">{{ entry.title|upper }}</h4><h5>Last updated: {{ entry.creation_date }}</h5>
 
             <p class="card-text">{{ entry.body }}</p>
-            <a href="{{ request.route_url('detail', id=entry.id) }}" class="btn btn--secondary">Details</a>
+            <a href="{{ request.route_url('detail', id=entry.id) }}" class="btn btn-secondary">Details &rarr;</a>
           </div>
         </div>
       {% endfor %}
+    </hr>
     </main>
 {% endblock %}
 
