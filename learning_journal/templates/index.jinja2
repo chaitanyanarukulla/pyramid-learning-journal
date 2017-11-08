@@ -16,26 +16,15 @@
 
     <!-- Main Content -->
 
-
-          <!-- Pager -->
-          <div class="clearfix">
-            <a class="btn btn-secondary float-right" href="/journal/new-entry">New Entry &rarr;</a>
-          </div>
-
-    <main class="article-list">
-      <div class="page-header">
-
-      </div>
       {% for entry in entry %}
       <hr>
         <div class="clearfix">
           <div class="card-body">
-            <h4 class="card-title">{{ entry.title|upper }}</h4><h5>Last updated: {{ entry.creation_date }}</h5>
-
-            <p class="card-text">{{ entry.body }}</p>
-            <a href="{{ request.route_url('detail', id=entry.id) }}" class="btn btn-secondary">Details &rarr;</a>
-
-      {% endfor %}
+          <h4 class="card-title">{{ entry.title|upper }}</h4><h5>Last updated: {{ entry.creation_date }}</h5>
+       {#    <p class="card-text">{{ entry.body }}</p> #}
+          <a href="{{ request.route_url('detail', id=entry.id) }}" class="btn btn-secondary  ">Read this blog &rarr;</a>
+        </div>
+    {% endfor %}
     </hr>
     </main>
 {% endblock %}

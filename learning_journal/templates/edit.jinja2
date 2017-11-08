@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="page-heading">
-              <h1>Update</h1>
+              <h1>Update blog</h1>
             </div>
           </div>
         </div>
@@ -21,7 +21,7 @@
           <p>Update this blog Entry</p>
           <form method="POST" name="sentMessage" id="contactForm" novalidate>
             <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
+              <div class="form-group ">
                 <label for="exampleFormControlInput1">Title</label>
                 <textarea class="form-control" name="title"  rows="1">{{ Entry.title }}</textarea>
                 <p class="help-block text-danger"></p>
@@ -29,7 +29,7 @@
             </div>
 
             <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
+              <div class="form-group ">
                 <label for="exampleFormControlTextarea1">Blog</label>
                 <textarea class="form-control" name="body" rows="5">{{ Entry.body }}</textarea>
               </div>
