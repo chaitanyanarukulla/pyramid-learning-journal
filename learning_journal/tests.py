@@ -4,11 +4,21 @@ from pyramid.httpexceptions import HTTPNotFound
 import pytest
 
 
-from learning_journal.views.default import (
-    list_view,
-    detail_view,
-    create_view,
-)
+@pytest.fixture
+def testapp():
+    """Initialize test route for testing."""
+    from webtest import TestApp
+    from pyramid.config import Configurator
+
+    def main():
+        config = Configurator()
+        config.include('pyramid_jinja2')
+        config.include('.routes')
+        config.scan()
+        return config.make_wsgi_app()
+
+    app = main()
+    return TestApp(app)
 
 
 @pytest.fixture
@@ -51,23 +61,6 @@ def test_update_view_raises_exception_id_not_found():
         update_view(req)
 
 
-@pytest.fixture
-def testapp():
-    """Initialize test route for testing."""
-    from webtest import TestApp
-    from pyramid.config import Configurator
-
-    def main():
-        config = Configurator()
-        config.include('pyramid_jinja2')
-        config.include('.routes')
-        config.scan()
-        return config.make_wsgi_app()
-
-    app = main()
-    return TestApp(app)
-
-
 def test_detail_route_has_text_from_journal(testapp):
     """Test if detail route return text from served journal."""
     response = testapp.get("/journal/1")
@@ -93,4 +86,3 @@ def test_all_entries_in_data_in_request(dummy_request):
     req = dummy_request
     response = list_view(req)
     assert response['entry'] == ENTRIES
-
