@@ -1,4 +1,4 @@
-"""."""
+"""Setup.py."""
 import os
 
 from setuptools import setup, find_packages
@@ -16,6 +16,8 @@ requires = [
     'pyramid_jinja2',
     'pyramid_retry',
     'pyramid_tm',
+    'ipython',
+    'pyramid_ipython',
     'SQLAlchemy',
     'transaction',
     'zope.sqlalchemy',
@@ -28,14 +30,14 @@ tests_require = [
     'WebTest >= 1.3.1',  # py3 compat
     'pytest',
     'pytest-cov',
+    'tox',
     'faker'
 ]
 
 setup(
     name='learning_journal',
     version='0.0',
-    description='Learning Journal',
-    long_description=README + '\n\n' + CHANGES,
+    description='learning-journal',
     classifiers=[
         'Programming Language :: Python',
         'Framework :: Pyramid',

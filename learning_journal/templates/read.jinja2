@@ -3,29 +3,24 @@
 {% block content %}
  <!-- Page Header -->
 <header class="masthead" style="background-image: url('../static/seattle.jpg')">
-  <div class="container">
-    <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
-          <h1>Detail blog</h1>
+          <h1>Detail blog </h1>
           <span class="subheading"></span>
         </div>
       </div>
       </header>
-        <main class="article-content">
-              <div class="page-header">
+            <a class="btn btn-secondary float-right" href="{{ request.route_url('update', id=entry.id) }}" style="float: right">Edit this Post &rarr;</a>
+            <div class="card-footer text-muted">
+            <div class="clearfix">
+            <div class="card-body">
                 <h1>{{ entry.title }}</h1>
+                <h5>Last updated: {{ entry.creation_date }}</h5> 
+                <p class="card-text">{{ entry.body }}</p>
                 </div>
-                  <div class="card">
-                    <div class="card-body">
-                      <p class="card-text">{{ entry.body }}</p>
-                    </div>
-                  <div class="clearfix">
-                   {{ entry.creation_date }} <a class="btn btn-secondary float-right" href="{{ request.route_url('update', id=entry.id) }}">Edit this Post &rarr;</a>
-                </div>
-              </div>
+            </div>
+            </div>
         </main>
     </div>
-  </div>
 
 {% endblock %}

@@ -10,7 +10,7 @@ from pyramid.security import remember, forget
              renderer='learning_journal:templates/index.jinja2')
 def list_view(request):
     """This_ serves home page."""
-    entries = request.dbsession.query(Entry).all()
+    entries = request.dbsession.query(Entry).order_by(Entry.creation_date.desc()).all()
     entries = [entry.to_dict() for entry in entries]
     return {
         "entry": entries,
