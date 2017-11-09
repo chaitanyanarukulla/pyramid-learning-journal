@@ -64,16 +64,18 @@ def update_view(request):
 
 
 @view_config(route_name="login",
-             renderer="../templates/login.jinja2",
+             renderer="learning_journal:templates/login.jinja2",
              require_csrf=False)
 def login_view(request):
+    """."""
     if request.POST:
         username = request.POST["username"]
         password = request.POST["password"]
         if check_credentials(username, password):
+            # import pdb;pdb.set_trace()
             auth_head = remember(request, username)
             return HTTPFound(
-                request.route_url("list"),
+                request.route_url('home'),
                 headers=auth_head
             )
 
@@ -82,5 +84,6 @@ def login_view(request):
 
 @view_config(route_name="logout")
 def logout_view(request):
+    """."""
     auth_head = forget(request)
-    return HTTPFound(request.route_url("list"), headers=auth_head)
+    return HTTPFound(request.route_url('home'), headers=auth_head)

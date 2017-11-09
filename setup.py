@@ -1,3 +1,4 @@
+"""."""
 import os
 
 from setuptools import setup, find_packages
@@ -19,6 +20,7 @@ requires = [
     'transaction',
     'zope.sqlalchemy',
     'waitress',
+    'passlib',
     'psycopg2'
 ]
 
