@@ -3,7 +3,6 @@ import os
 from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 from pyramid.security import Allow, Authenticated
-
 from pyramid.session import SignedCookieSessionFactory
 
 from passlib.apps import custom_app_context as pwd_context
@@ -15,8 +14,6 @@ class NewRoot(object):
     def __init__(self, request):
         """."""
 
-        self.request = request
-
     __acl__ = [
         (Allow, Authenticated, 'add')
     ]
@@ -26,6 +23,10 @@ def check_credentials(username, password):
     """Return True if correct username and password, else False."""
     if username and password:
         # proceed to check credentials
+
+        if username == os.environ.get("AUTH_USERNAME", ''):
+            return pwd_context.verify(password, os.environ.get("AUTH_PASSWORD",
+                                      ''))
 
         if username == os.environ.get("AUTH_USERNAME", ''):
             return pwd_context.verify(password, os.environ.get("AUTH_PASSWORD",
