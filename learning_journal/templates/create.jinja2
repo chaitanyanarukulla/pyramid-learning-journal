@@ -1,39 +1,23 @@
 {% extends "layout.jinja2" %}
 {% block content %}
 <!-- Page Header -->
-    <header class="masthead" style="background-image: url('../static/seattle.jpg')">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="page-heading">
-              <h1>Create Blog</h1>
-            </div>
-          </div>
+<header class="masthead" style="background-image: url('../static/seattle.jpg')">
+  <div class="row">
+   <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="page-heading">
+     <h2>Keep the words flowing</h2>
+      <form method="POST" name="sentMessage" id="contactForm" novalidate>
+         <div class="form-group ">
+             <input type="text" placeholder="Title" name="title" class="form-control" place>
+             </div>
+             <div class="">
+         <textarea rows="10" placeholder="Body" name="body" class="form-control"></textarea>
+        <button type="submit" class="btn btn-secondary float-right">Publish &rarr;</button>
         </div>
-      </div>
-    </header>
-
-    <!-- Main Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <form method="POST" name="sentMessage" id="contactForm" novalidate>
-            <div class="control-group">
-              <label>Title</label>
-              <input type="text" name="title" class="form-control" placeholder="Title" id="Title">
-              <p class="help-block text-danger"></p>
-            </div>
-            <div class="control-group">
-              <div class="">
-                <label>Body</label>
-                <textarea rows="5" name="body" class="form-control" placeholder="Body" id="message"></textarea>
-                <p class="help-block text-danger"></p>
-              </div>
-              <button type="submit" class="btn btn-secondary float-right" id="postBlog">Post &rarr;</button>
-            </div>
-            <br>
-          </form>
-        </div>
-      </div>
+      </form>
+     </div>
     </div>
+  </div>
+</header>
+
 {% endblock %}
