@@ -5,20 +5,21 @@
 <header class="masthead" style="background-image: url('../static/seattle.jpg')">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
-          <h1>{{ entry.title }}</h1>
-{#           <h5>Last updated: {{ entry.creation_date }}</h5>
- #}          <span class="subheading"><h5>Last updated: {{ entry.creation_date }}</h5></span>
+           <div  class="form-control">
+            <div class="card-body" >
+          <h2>{{ entry.title }}</h2>
+         <span class="subheading"><h5>Last updated: {{ entry.creation_date }}</h5></span>
+            <div  class="form-control">
+            <div class="card-body" >
+                <p class="card-text">{{ entry.body }}</p>
+            </div>
+            </div>
+            </div>
+            </div>
+            <br>
+            <button><a class="btn btn-secondary float-center" href="{{ request.route_url('update', id=entry.id) }}">Edit this Post &rarr;</a></button>
+            </div>
         </div>
       </div>
-      <a class="btn btn-secondary float-right" href="{{ request.route_url('update', id=entry.id) }}" style="float: right">Edit this Post &rarr;</a>
-      </header>
-            <div class="card-footer text-muted">
-            <div class="clearfix">
-            <div class="card-body">
-                <p class="card-text">{{ entry.body }}</p>
-                </div>
-            </div>
-            </div>
-        </main>
-    </div>
+</header>
 {% endblock %}
