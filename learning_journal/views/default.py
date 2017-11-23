@@ -4,10 +4,13 @@ from pyramid.httpexceptions import HTTPNotFound, HTTPFound, HTTPBadRequest
 from learning_journal.models.mymodel import Entry
 from learning_journal.security import check_credentials
 from pyramid.security import remember, forget
+# from pyramid.session import check_csrf_token
 
 
 @view_config(route_name='home',
-             renderer='learning_journal:templates/index.jinja2')
+             renderer='learning_journal:templates/index.jinja2',
+             permission='view',
+             require_csrf=False)
 def list_view(request):
     """This_ serves home page."""
     entries = request.dbsession.query(Entry).order_by(Entry.creation_date.desc()).all()
@@ -19,7 +22,9 @@ def list_view(request):
 
 
 @view_config(route_name='detail',
-             renderer='learning_journal:/templates/read.jinja2')
+             renderer='learning_journal:/templates/read.jinja2',
+             permission='view',
+             require_csrf=False)
 def detail_view(request):
     """This_ serves single blog entry page."""
     the_id = int(request.matchdict['id'])
@@ -29,8 +34,10 @@ def detail_view(request):
     raise HTTPNotFound
 
 
-@view_config(route_name='create', permission='add',
-             renderer='learning_journal:templates/create.jinja2')
+@view_config(route_name='create',
+             renderer='learning_journal:templates/create.jinja2',
+             permission='secret'
+             )
 def create_view(request):
     """Receive request and serves create page."""
     if request.method == "POST":
@@ -45,8 +52,9 @@ def create_view(request):
     return {}
 
 
-@view_config(route_name='update', permission='add',
-             renderer='learning_journal:templates/edit.jinja2')
+@view_config(route_name='update',
+             renderer='learning_journal:templates/edit.jinja2',
+             permission='secret')
 def update_view(request):
     """Receive request and serves edit page."""
     the_id = int(request.matchdict['id'])
@@ -67,7 +75,7 @@ def update_view(request):
              renderer="learning_journal:templates/login.jinja2",
              require_csrf=False)
 def login_view(request):
-    """."""
+    """Thi serves login page."""
     if request.POST:
         username = request.POST["username"]
         password = request.POST["password"]
@@ -82,8 +90,8 @@ def login_view(request):
     return {}
 
 
-@view_config(route_name="logout")
+@view_config(route_name="logout", require_csrf=False)
 def logout_view(request):
-    """."""
+    """Serve logout page."""
     auth_head = forget(request)
     return HTTPFound(request.route_url('home'), headers=auth_head)

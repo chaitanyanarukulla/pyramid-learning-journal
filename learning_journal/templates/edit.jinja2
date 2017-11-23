@@ -2,46 +2,28 @@
 
 {% block content %}
    <header class="masthead" style="background-image: url('../../static/seattle.jpg')">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="page-heading">
-              <h1>Update blog</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
- <!-- Main Content -->
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <p>Update this blog Entry</p>
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading"><h2>Update blog</h2>
           <form method="POST" name="sentMessage" id="contactForm" novalidate>
-            <div class="control-group">
-              <div class="form-group ">
-                <label for="exampleFormControlInput1">Title</label>
-                <textarea class="form-control" name="title"  rows="1">{{ Entry.title }}</textarea>
-                <p class="help-block text-danger"></p>
+          <input type="hidden" name="csrf_token" value="{{ request.session.get_csrf_token() }}" />
+              <div class="control-group">
+                  <div class="form-group ">
+                  <textarea class="form-control" name="title"  rows="1">{{ Entry.title }}</textarea>
+                  <p class="help-block text-danger"></p>
+                  </div>
               </div>
-            </div>
-
-            <div class="control-group">
-              <div class="form-group ">
-                <label for="exampleFormControlTextarea1">Blog</label>
-                <textarea class="form-control" name="body" rows="5">{{ Entry.body }}</textarea>
-              </div>
-            </div>
-            <br>
-            <div id="success"></div>
-            <div class="form-group">
-              <button type="submit" value="Edit journal" class="btn btn-secondary" id="sendMessageButton">Publish &rarr;</button>
+                <div class="control-group">
+                  <div class="form-group ">
+                  <textarea class="form-control" name="body" rows="5">{{ Entry.body }}</textarea>
+                  </div>
+                </div><br>
+                <div id="success"></div>
+              <div class="form-group"><button type="submit" value="Edit journal" class="btn btn-secondary" id="sendMessageButton">Publish &rarr;</button>
             </div>
           </form>
         </div>
       </div>
     </div>
-  </hr>
+  </header>
 {% endblock %}
