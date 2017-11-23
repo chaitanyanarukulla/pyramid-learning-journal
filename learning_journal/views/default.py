@@ -75,7 +75,7 @@ def update_view(request):
              renderer="learning_journal:templates/login.jinja2",
              require_csrf=False)
 def login_view(request):
-    """."""
+    """Thi serves login page."""
     if request.POST:
         username = request.POST["username"]
         password = request.POST["password"]
@@ -92,6 +92,6 @@ def login_view(request):
 
 @view_config(route_name="logout", require_csrf=False)
 def logout_view(request):
-    """."""
+    """Serve logout page."""
     auth_head = forget(request)
     return HTTPFound(request.route_url('home'), headers=auth_head)
