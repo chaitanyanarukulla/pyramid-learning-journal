@@ -6,6 +6,7 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="page-heading"><h2>Update blog</h2>
           <form method="POST" name="sentMessage" id="contactForm" novalidate>
+          <input type="hidden" name="csrf_token" value="{{ request.session.get_csrf_token() }}" />
               <div class="control-group">
                   <div class="form-group ">
                   <textarea class="form-control" name="title"  rows="1">{{ Entry.title }}</textarea>
