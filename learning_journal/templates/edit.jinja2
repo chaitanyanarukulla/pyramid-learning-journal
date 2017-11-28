@@ -1,20 +1,29 @@
-
 {% extends "layout.jinja2" %}
 
-{% block body %}
-    <article>
-      <div class="page-header">
-        <h1>Edit Post</h1>
+{% block content %}
+   <header class="masthead" style="background-image: url('../../static/seattle.jpg')">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading"><h2>Update blog</h2>
+          <form method="POST" name="sentMessage" id="contactForm" novalidate>
+          <input type="hidden" name="csrf_token" value="{{ request.session.get_csrf_token() }}" />
+              <div class="control-group">
+                  <div class="form-group ">
+                  <textarea class="form-control" name="title"  rows="1">{{ Entry.title }}</textarea>
+                  <p class="help-block text-danger"></p>
+                  </div>
+              </div>
+                <div class="control-group">
+                  <div class="form-group ">
+                  <textarea class="form-control" name="body" rows="5">{{ Entry.body }}</textarea>
+                  </div>
+                </div><br>
+                <div id="success"></div>
+              <div class="form-group"><button type="submit" value="Edit journal" class="btn btn-secondary" id="sendMessageButton">Publish &rarr;</button>
+            </div>
+          </form>
+        </div>
       </div>
-      <form>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Title</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">{{ entry.title }}</textarea>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Body</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">{{ entry.body }}</textarea>
-        </div>
-      </form>
-    </article>
+    </div>
+  </header>
 {% endblock %}

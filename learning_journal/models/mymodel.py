@@ -1,18 +1,25 @@
+"""."""
+from datetime import datetime
 from sqlalchemy import (
     Column,
-    Index,
     Integer,
-    Text,
+    Unicode,
+    DateTime
 )
 
 from .meta import Base
 
 
-class MyModel(Base):
-    __tablename__ = 'models'
+class Entry(Base):
+    __tablename__ = 'Entry'
     id = Column(Integer, primary_key=True)
-    name = Column(Text)
-    value = Column(Integer)
+    title = Column(Unicode)
+    body = Column(Unicode)
+    creation_date = Column(DateTime, default=datetime.now())
 
-
-Index('my_index', MyModel.name, unique=True, mysql_length=255)
+    def to_dict(self):
+        return{'id': self.id,
+               'title': self.title,
+               'body': self.body,
+               'creation_date': self.creation_date.strftime('%A, %d %B, %Y, %I:%M %p')
+               }
