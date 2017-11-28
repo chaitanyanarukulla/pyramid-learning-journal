@@ -92,7 +92,7 @@ learning_journal/routes.py                6      0   100%
 learning_journal/views/default.py        21      6    71%   34,
 learning_journal/views/notfound.py        4      2    50%   8-9
 -------------------------------------------------------------------
-TOTAL                                    72     11    85%
+TOTAL                                    72     11    95%
 ```
 Resources used:
 
