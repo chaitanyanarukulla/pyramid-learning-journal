@@ -1,9 +1,8 @@
+"""."""
 from datetime import datetime
 from sqlalchemy import (
     Column,
-    Index,
     Integer,
-    Text,
     Unicode,
     DateTime
 )
@@ -24,4 +23,3 @@ class Entry(Base):
                'body': self.body,
                'creation_date': self.creation_date.strftime('%A, %d %B, %Y, %I:%M %p')
                }
-

@@ -1,63 +1,25 @@
-
-
 {% extends "layout.jinja2" %}
 {% block content %}
 <!-- Page Header -->
-    <header class="masthead" style="background-image: url('../static/seattle.jpg')">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="page-heading">
-              <h1>Create Blog</h1>
-            </div>
+<header class="masthead" style="background-image: url('../static/seattle.jpg')">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="page-heading">
+       <h2>Keep the words flowing</h2>
+        <form method="POST" name="sentMessage" id="contactForm" novalidate>
+        <input type="hidden" name="csrf_token" value="{{ request.session.get_csrf_token() }}" />
+          <div class="form-group ">
+             <input type="text" color="black" placeholder="Title" name="title" class="form-control" place>
+              </div>
+              <div class="">
+              <textarea rows="10" placeholder="Body" name="body" class="form-control"></textarea>
+              <br>
+            <button type="submit" class="btn btn-secondary float-center">Publish &rarr;</button>
           </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Main Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <p></p>
-          <form name="sentMessage" id="contactForm" novalidate>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>Title</label>
-                <input type="text" class="form-control" placeholder="Title" id="Title">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>Sub-title</label>
-                <input type="email" class="form-control" placeholder="Sub-title" id="email>
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group col-xs-12 floating-label-form-group controls">
-                <label>Date</label>
-                <input type="tel" class="form-control" placeholder="Date" id="phone">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>Body</label>
-                <textarea rows="5" class="form-control" placeholder="Body" id="message"></textarea>
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <br>
-            <div id="success"></div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-secondary" id="sendMessageButton">Post</button>
-            </div>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
+  </div>
+</header>
 
-    <hr>
 {% endblock %}

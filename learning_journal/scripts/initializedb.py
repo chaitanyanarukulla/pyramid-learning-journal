@@ -1,3 +1,4 @@
+"""."""
 import os
 import sys
 import transaction
@@ -5,8 +6,7 @@ from datetime import datetime
 
 from pyramid.paster import (
     get_appsettings,
-    setup_logging,
-    )
+    setup_logging)
 
 from pyramid.scripts.common import parse_vars
 
@@ -14,13 +14,13 @@ from ..models.meta import Base
 from ..models import (
     get_engine,
     get_session_factory,
-    get_tm_session,
-    )
+    get_tm_session)
 from ..models import Entry
 from learning_journal.Data.entry import ENTRIES
 
 
 def usage(argv):
+    """."""
     cmd = os.path.basename(argv[0])
     print('usage: %s <config_uri> [var=value]\n'
           '(example: "%s development.ini")' % (cmd, cmd))
@@ -28,6 +28,7 @@ def usage(argv):
 
 
 def main(argv=sys.argv):
+    """."""
     if len(argv) < 2:
         usage(argv)
     config_uri = argv[1]
@@ -37,6 +38,7 @@ def main(argv=sys.argv):
     settings['sqlalchemy.url'] = os.environ['DATABASE_URL']
 
     engine = get_engine(settings)
+    Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
 
     session_factory = get_session_factory(engine)
@@ -49,8 +51,7 @@ def main(argv=sys.argv):
                 Entry(
                     title=entry['title'],
                     body=entry['body'],
-                    creation_date=datetime.strptime(entry['creation_date'],
-                                                   '%A, %d %B, %Y, %I:%M %p')
-                    )
+                    creation_date=datetime.strptime(entry['creation_date'],'%A, %d %B, %Y, %I:%M %p')
                 )
+            )
             dbsession.add_all(all_entries)

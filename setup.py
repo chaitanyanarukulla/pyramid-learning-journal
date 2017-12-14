@@ -1,4 +1,5 @@
-"""setup.py."""
+"""Setup.py."""
+
 import os
 
 from setuptools import setup, find_packages
@@ -22,6 +23,7 @@ requires = [
     'transaction',
     'zope.sqlalchemy',
     'waitress',
+    'passlib',
     'psycopg2'
 ]
 
@@ -38,7 +40,10 @@ setup(
     name='learning_journal',
     version='0.0',
     description='learning-journal',
+
     # long_description=README + '\n\n' + CHANGES,
+
+
     classifiers=[
         'Programming Language :: Python',
         'Framework :: Pyramid',
