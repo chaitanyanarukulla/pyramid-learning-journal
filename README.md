@@ -65,7 +65,7 @@ youtube:https://www.youtube.com/playlist?list=PLVngfM2hsbi-Uo2jDso-K06VScDC1ucMy
 
 https://github.com/markreynoso/pyramid-learning-journal
 
-https://github.com/codefellows/expense_tracker_401d7
 
 https://github.com/ztaylor2/pyramid-learning-journal
 
+https://github.com/codefellows/expense_tracker_401d7
