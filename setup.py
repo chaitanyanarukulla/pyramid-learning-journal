@@ -22,6 +22,7 @@ requires = [
     'transaction',
     'zope.sqlalchemy',
     'waitress',
+    'psycopg2'
 ]
 
 tests_require = [
@@ -29,6 +30,8 @@ tests_require = [
     'pytest',
     'pytest-cov',
     'tox',
+    'faker'
+
 ]
 
 setup(
@@ -58,7 +61,7 @@ setup(
             'main = learning_journal:main',
         ],
         'console_scripts': [
-            'initialize_learning_journal_db = learning_journal.scripts.initializedb:main',
+            'initdb = learning_journal.scripts.initializedb:main',
         ],
     },
 )
