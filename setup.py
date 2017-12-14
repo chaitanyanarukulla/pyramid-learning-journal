@@ -1,4 +1,5 @@
 """Setup.py."""
+
 import os
 
 from setuptools import setup, find_packages
@@ -32,12 +33,17 @@ tests_require = [
     'pytest-cov',
     'tox',
     'faker'
+
 ]
 
 setup(
     name='learning_journal',
     version='0.0',
     description='learning-journal',
+
+    # long_description=README + '\n\n' + CHANGES,
+
+
     classifiers=[
         'Programming Language :: Python',
         'Framework :: Pyramid',
